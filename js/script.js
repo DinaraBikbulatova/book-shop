@@ -8,11 +8,23 @@ const productsData = [
 
 let cart = [];
 
+const loadCartFromStorage = () => {
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+        cart = JSON.parse(savedCart);
+        renderCart();
+    }
+};
+
+const saveCartToStorage = () => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+};
 
 const addToCart = (productId) => {
     const product = productsData.find(p => p.id === productId);
     if (product) {
         cart.push(product);
+        saveCartToStorage();
         renderCart();
         alert(`"${product.name}" добавлена в корзину`);
     }
@@ -21,6 +33,7 @@ const addToCart = (productId) => {
 
 const removeFromCart = (index) => {
     cart.splice(index, 1);
+    saveCartToStorage();
     renderCart();
 };
 
@@ -70,6 +83,7 @@ const checkout = () => {
     } else {
         alert('Покупка прошла успешно! Спасибо за заказ.');
         cart = [];
+        saveCartToStorage(); 
         renderCart();
     }
 };
@@ -89,6 +103,7 @@ const filterProducts = (category) => {
 
 // Инициализация страницы
 document.addEventListener('DOMContentLoaded', () => {
+    loadCartFromStorage();
     // Фильтр на странице каталога
     const filterSelect = document.getElementById('category-filter');
     if (filterSelect) {
