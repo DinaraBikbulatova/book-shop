@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мир книг - Каталог</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="catalog.html">Каталог книг</a></li>
+    </ul>
+    <hr>
+    
+    <h1>Каталог книг</h1>
+    
+    <!-- Фильтр -->
+    <div class="filter-container">
+        <label for="category-filter">Фильтр по жанру:</label>
+        <select id="category-filter">
+            <option value="все">Все книги</option>
+            <option value="философия">Философия</option>
+            <option value="ужасы">Ужасы</option>
+            <option value="детектив">Детектив</option>
+        </select>
+    </div>
+    
+    <div class="catalog-wrapper">
+        <!-- Список товаров -->
+        <div class="products-list">
+            <div class="product-card" data-category="философия">
+                <img src="img/cats.jpg" alt="Если все кошки в мире исчезнут" width="150">
+                <br>
+                <a href="product.html">Смотреть книгу "Если все кошки в мире исчезнут"</a>
+                <div class="product-price">Цена: 450 ₽</div>
+                <button class="add-to-cart-btn" data-id="1">Добавить в корзину</button>
+            </div>
+            
+            <div class="product-card" data-category="ужасы">
+                <img src="img/it.jpg" alt="Оно" width="140">
+                <br>
+                <a href="product2.html">Смотреть книгу "Оно"</a>
+                <div class="product-price">Цена: 650 ₽</div>
+                <button class="add-to-cart-btn" data-id="2">Добавить в корзину</button>
+            </div>
+            
+            <div class="product-card" data-category="детектив">
+                <img src="img/halloween.jpg" alt="Вечеринка в Хэллоуин" width="150">
+                <br>
+                <a href="product3.html">Смотреть книгу "Вечеринка в Хэллоуин"</a>
+                <div class="product-price">Цена: 380 ₽</div>
+                <button class="add-to-cart-btn" data-id="3">Добавить в корзину</button>
+            </div>
+        </div>
+        
+        <!-- Блок корзины -->
+        <div class="cart-sidebar">
+            <h3>Корзина</h3>
+            <ul id="cart-list" class="cart-list">
+                <li style="text-align: center; color: #6c757d; list-style: none;">Корзина пуста</li>
+            </ul>
+            <div class="cart-total" id="cart-total">Итого: 0 ₽</div>
+            <button id="checkout-btn" class="checkout-btn">Оплатить</button>
+        </div>
+    </div>
+
+    <hr>
+    <p>&copy; 2026 Интернет-магазин "Мир книг". Все права защищены.</p>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
